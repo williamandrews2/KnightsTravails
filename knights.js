@@ -20,6 +20,11 @@ function knightMoves(start, end) {
   const visited = new Set();
   const cameFrom = new Map(); // format will be KEY came from VALUE
 
+  if (startX === endX && startY === endY) {
+    console.log(`You're already at the destination: [${startX},${startY}]`);
+    return;
+  }
+
   while (queue.length > 0) {
     const [x, y] = queue.shift();
     if (x === endX && y === endY) {
@@ -44,7 +49,7 @@ function knightMoves(start, end) {
         newY < 8 &&
         !visited.has(newKey)
       ) {
-        cameFrom.set(`${newX},${newY}`, `${x},${y}`);
+        cameFrom.set(newKey, key);
         queue.push([newX, newY]);
       }
     }
@@ -65,11 +70,11 @@ function knightMoves(start, end) {
 
     // print out the result
     let distance = path.length - 1;
-    const seperator = " => ";
-    const resultString = path.join(seperator);
+    const separator = " => ";
+    const resultString = path.join(separator);
     console.log(`You made it in ${distance} moves! Here's your path:`);
     console.log(resultString);
   }
 }
 
-knightMoves([3, 3], [4, 3]);
+knightMoves([3, 3], [3, 3]);
