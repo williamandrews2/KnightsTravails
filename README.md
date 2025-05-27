@@ -28,9 +28,11 @@ Write a program that finds the shortest possible path a knight can take from one
 
 ## 📂 Project Structure
 
+```text
 knights-travails/
 ├── knights.js # Main BFS logic and knight movement
 └── README.md # Project description and instructions
+```
 
 ---
 
